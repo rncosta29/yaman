@@ -14,7 +14,7 @@ public class BaseTest {
     protected WebDriverWait wait;
 
     public WebDriver inicializaWeb(){
-        System.setProperty("webdriver.chrome.driver","chromedriver");
+        System.setProperty("webdriver.chrome.driver","./src/chromedriver.exe");
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("profile.default_content_setting_values.notifications", 2);
         ChromeOptions options = new ChromeOptions();
@@ -22,6 +22,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().window().fullscreen();
         wait = new WebDriverWait(driver,15);
+        driver.get("http://srbarriga.herokuapp.com/");
         return driver;
     }
 
